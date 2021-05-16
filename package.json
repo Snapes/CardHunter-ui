@@ -1,0 +1,47 @@
+{
+  "name": "create-react-app-with-typescript",
+  "version": "4.0.0",
+  "private": true,
+  "dependencies": {
+    "@glideapps/glide-data-grid": "^2.1.10",
+    "@inovua/reactdatagrid-community": "^4.1.14",
+    "@material-ui/core": "latest",
+    "@material-ui/data-grid": "^4.0.0-alpha.27",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.58",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "axios": "^0.21.1",
+    "direction": "^2.0.0",
+    "marked": "^2.0.3",
+    "mui-datatables": "^3.7.7",
+    "react": "latest",
+    "react-data-grid": "^7.0.0-canary.43",
+    "react-dom": "latest",
+    "react-responsive-carousel": "^3.2.18",
+    "react-scripts": "latest",
+    "styled-components": "^5.2.3",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}
