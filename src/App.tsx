@@ -34,44 +34,42 @@ const top100Films = [
 ]
 
 
-class AppTable extends React.Component {
+export default function App() {
 
-  render() {
+  const [columns, setColumns] = useState([])
+  useEffect(() => {
+    axios.get('http://localhost:5000/parsers').then(res => setColumns(res.data))
+    .catch(err => console.log(err.message))
+  }, [])
 
-    const [columns, setColumns] = useState([])
-    useEffect(() => {
-      axios.get('http://127.0.0.1:5000/parsers').then(res => setColumns(res.data))
-      .catch(err => console.log(err.message))
-    }, [])
-  
-    const [data, setData] = useState([]);
-  
-    useEffect(() => {
-      axios.post('http://127.0.0.1:5000/', {
-        card: 'Fervor',
-      }).then(res => setData(res.data))
-      .catch(err => console.log(err.message))
-    }, [])
+  const [data, setData] = useState([]);
 
-    return (
-      <Container maxWidth="xl">
-        <Box my={4}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            MTG Card Hunter
-          </Typography>
-          <Autocomplete
-          id="free-solo-demo"
-          freeSolo
-          options={top100Films.map((option) => option.title)}
-          renderInput={(params) => (
-            <TextField {...params} label="freeSolo" margin="normal" variant="outlined" />
-          )}
-        />
-          <MUIDataTable title={"Prices"} data={data} columns={columns} options={options}/>
-        </Box>
-      </Container>
-    );
-  }
+  useEffect(() => {
+    axios.post('http://localhost:5000/cards', {
+      cards: ['Fervor'],
+    }).then(res => setData(res.data))
+    .catch(err => console.log(err.message))
+  }, [])
+
+
+  return (
+    <Container maxWidth="xl">
+      <Box my={4}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          MTG Card Hunter
+        </Typography>
+        <Autocomplete
+        id="free-solo-demo"
+        freeSolo
+        options={top100Films.map((option) => option.title)}
+        renderInput={(params) => (
+          <TextField {...params} label="freeSolo" margin="normal" variant="outlined" />
+        )}
+      />
+        <MUIDataTable title={"Prices"} data={data} columns={columns} options={options}/>
+      </Box>
+    </Container>
+  );
 }
 
-export default AppTable
+// export default AppTable
