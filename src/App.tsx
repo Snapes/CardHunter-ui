@@ -1,56 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import {Container, TextField, Typography, Box} from '@material-ui/core';
 import { Autocomplete} from '@material-ui/lab';
-// import { DataGrid } from '@material-ui/data-grid';
 import MUIDataTable from "mui-datatables";
 import axios from "axios"
-import { GridNoRowsOverlay } from '@material-ui/data-grid';
-
-const columns = [
-    "Card",
-    "Hobbymaster",
-    "Hareruya EN",
-    "Hareruya JP",
-    "Baydragon",
-    "Goblin Games",
-    "Spellbound",
-    "Magic at Willis",
-    "Iron Knight Gaming",
-    "Magic Magpie"
-];
-
-const rows = [
-  ['Fervor', 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
-  ['Counterspell', 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
-];
 
 const options = {
   filterType: 'checkbox',
 };
 
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
+const columns = [
+  "Card",
+  "Hobbymaster",
+  "Hareruya EN",
+  "Hareruya JP",
+  "Baydragon",
+  "Goblin Games",
+  "Spellbound",
+  "Magic at Willis",
+  "Iron Knight Gaming",
+  "Magic Magpie"
 ]
-
 
 export default function App() {
 
-  const [columns, setColumns] = useState([])
-  useEffect(() => {
-    axios.get('http://localhost:5000/parsers').then(res => setColumns(res.data))
+  // const [columns, setColumns] = useState([])
+  // useEffect(() => {
+  //   axios.get('http://localhost:5000/parsers').then(res => setColumns(res.data))
+  //   .catch(err => console.log(err.message))
+  // }, [])
+
+  const [scryfall, scryComplete] = useState([])
+  const scry_api_get = (value) => {    
+    axios.get(`https://api.scryfall.com/cards/autocomplete?q=${value.target.value}`).then(res => scryComplete(res.data["data"]))
     .catch(err => console.log(err.message))
-  }, [])
+  }
 
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios.post('http://localhost:5000/cards', {
-      cards: ['Fervor'],
-    }).then(res => setData(res.data))
+  const [data, setData] = useState(Array());
+
+  const select_card = (value) => {
+    axios.post('http://localhost:5000/card', {
+      card: value.target.innerText,
+    }).then(res => setData([...data, res.data]))
     .catch(err => console.log(err.message))
-  }, [])
-
+    console.log(data)
+  }
 
   return (
     <Container maxWidth="xl">
@@ -61,9 +55,10 @@ export default function App() {
         <Autocomplete
         id="free-solo-demo"
         freeSolo
-        options={top100Films.map((option) => option.title)}
+        options={scryfall}
+        onClose={select_card}
         renderInput={(params) => (
-          <TextField {...params} label="freeSolo" margin="normal" variant="outlined" />
+          <TextField {...params} label="Add Card" margin="normal" onChange={scry_api_get} variant="outlined" />
         )}
       />
         <MUIDataTable title={"Prices"} data={data} columns={columns} options={options}/>
