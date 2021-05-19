@@ -1,7 +1,8 @@
 {
-  "name": "create-react-app-with-typescript",
-  "version": "4.0.0",
-  "private": true,
+  "name": "mtg-card-hunter-ui",
+  "version": "1.0.0",
+  "description": "## How to use",
+  "main": "App.tsx",
   "dependencies": {
     "@inovua/reactdatagrid-community": "^4.1.14",
     "@material-ui/core": "^4.11.4",
@@ -12,6 +13,7 @@
     "@types/react-dom": "latest",
     "axios": "^0.21.1",
     "direction": "^2.0.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "marked": "^2.0.3",
     "mui-datatables": "^3.7.7",
     "react": "^17.0.2",
@@ -22,6 +24,7 @@
     "styled-components": "^5.2.3",
     "typescript": "latest"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -29,6 +32,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "github.com:Snapes/CardHunter-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -40,8 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
