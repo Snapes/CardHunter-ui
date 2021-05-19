@@ -23,11 +23,11 @@ const columns = [
 
 export default function App() {
 
-  // const [columns, setColumns] = useState([])
-  // useEffect(() => {
-  //   axios.get('http://localhost:5000/parsers').then(res => setColumns(res.data))
-  //   .catch(err => console.log(err.message))
-  // }, [])
+  const [columns, setColumns] = useState([])
+  useEffect(() => {
+    axios.get('https://card-hunter-backend.herokuapp.com/parsers').then(res => setColumns(res.data))
+    .catch(err => console.log(err.message))
+  }, [])
 
   const [scryfall, scryComplete] = useState([])
   const scry_api_get = (value) => {    
@@ -39,7 +39,7 @@ export default function App() {
   const [data, setData] = useState(Array());
 
   const select_card = (value) => {
-    axios.post('http://localhost:5000/card', {
+    axios.post('https://card-hunter-backend.herokuapp.com/card', {
       card: value.target.innerText,
     }).then(res => setData([...data, res.data]))
     .catch(err => console.log(err.message))
