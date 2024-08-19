@@ -23,7 +23,7 @@
     "react-scripts": "latest",
     "serve": "^11.3.2",
     "styled-components": "^5.2.3",
-    "typescript": "latest"
+    "typescript": "4.9.5"
   },
   "devDependencies": {},
   "scripts": {
