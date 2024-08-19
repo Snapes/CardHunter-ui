@@ -10,7 +10,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.58",
     "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@types/react-dom": "17.0.25",
     "axios": "^0.21.1",
     "direction": "^2.0.0",
     "eslint-plugin-react-hooks": "^4.2.0",
