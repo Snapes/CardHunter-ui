@@ -4,7 +4,7 @@
   "description": "## How to use",
   "main": "App.tsx",
   "dependencies": {
-    "@inovua/reactdatagrid-community": "^4.1.14",
+    "@inovua/reactdatagrid-community": "^4.21.0",
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.27",
     "@material-ui/icons": "^4.11.2",
