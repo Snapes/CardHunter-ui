@@ -9,7 +9,7 @@
     "@material-ui/data-grid": "^4.0.0-alpha.27",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.58",
-    "@types/react": "latest",
+    "@types/react": "17.0.80",
     "@types/react-dom": "latest",
     "axios": "^0.21.1",
     "direction": "^2.0.0",
