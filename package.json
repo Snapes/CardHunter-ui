@@ -20,8 +20,8 @@
     "react-data-grid": "^7.0.0-canary.43",
     "react-dom": "latest",
     "react-responsive-carousel": "^3.2.18",
-    "react-scripts": "latest",
-    "serve": "^11.3.2",
+    "react-scripts": "5.0.0",
+    "serve": "^14.2.4",
     "styled-components": "^5.2.3",
     "typescript": "latest"
   },
